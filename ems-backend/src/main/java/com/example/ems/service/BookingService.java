@@ -17,18 +17,20 @@ public class BookingService {
     private final UserRepository userRepo;
     private final BookingRepository bookingRepo;
     private final TicketTypeRepository ticketTypeRepo;
-    private final EmailService emailService; // NEW
+    // private final EmailService emailService; // NEW
 
     public BookingService(EventRepository eventRepo,
                           UserRepository userRepo,
                           BookingRepository bookingRepo,
-                          TicketTypeRepository ticketTypeRepo,
-                          EmailService emailService) {
+                          TicketTypeRepository ticketTypeRepo)
+                        //   EmailService emailService ) 
+                        {
+
         this.eventRepo = eventRepo;
         this.userRepo = userRepo;
         this.bookingRepo = bookingRepo;
         this.ticketTypeRepo = ticketTypeRepo;
-        this.emailService = emailService;
+        // this.emailService = emailService;
     }
 
     @Transactional
@@ -67,7 +69,7 @@ public class BookingService {
         Booking saved = bookingRepo.save(b);
 
         // ✅ Trigger booking confirmation email
-        emailService.sendBookingConfirmation(user, event, tt);
+        // emailService.sendBookingConfirmation(user, event, tt);
 
         return saved;
     }

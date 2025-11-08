@@ -18,14 +18,14 @@ public class EventService {
 
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
-    private final TicketTypeRepository ticketTypeRepository;
+    // private final TicketTypeRepository ticketTypeRepository;
 
     public EventService(EventRepository eventRepository,
                         UserRepository userRepository,
                         TicketTypeRepository ticketTypeRepository) {
         this.eventRepository = eventRepository;
         this.userRepository = userRepository;
-        this.ticketTypeRepository = ticketTypeRepository;
+        // this.ticketTypeRepository = ticketTypeRepository;
     }
 
     // ---------- Read operations ----------
