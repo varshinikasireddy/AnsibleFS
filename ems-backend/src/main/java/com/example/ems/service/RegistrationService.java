@@ -16,16 +16,16 @@ public class RegistrationService {
     private final RegistrationRepository registrationRepository;
     private final EventRepository eventRepository;
     private final UserRepository userRepository;
-    private final EmailService emailService; // NEW
+    // private final EmailService emailService; // NEW
 
     public RegistrationService(RegistrationRepository registrationRepository,
                                EventRepository eventRepository,
-                               UserRepository userRepository,
-                               EmailService emailService) {
+                               UserRepository userRepository
+                              ) {
         this.registrationRepository = registrationRepository;
         this.eventRepository = eventRepository;
         this.userRepository = userRepository;
-        this.emailService = emailService;
+        
     }
 
     @Transactional
@@ -44,7 +44,7 @@ public class RegistrationService {
         Registration saved = registrationRepository.save(reg);
 
         // ✅ Trigger confirmation email
-        emailService.sendRegistrationConfirmation(user, event);
+        // emailService.sendRegistrationConfirmation(user, event);
 
         return saved;
     }
